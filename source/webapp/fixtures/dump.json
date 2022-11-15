@@ -1,0 +1,141 @@
+[
+{
+  "model": "webapp.store",
+  "pk": 3,
+  "fields": {
+    "name": "r",
+    "description": "qwdqwqwdqwdqw",
+    "status": "Other",
+    "remainder": 1,
+    "price": 13234
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 4,
+  "fields": {
+    "name": "a",
+    "description": "qwddddddddddddddddddddsaczxxxxxxxxxxxcascascasscascccccccccccccccccccccccccccccccccccccccc",
+    "status": "other",
+    "remainder": 2,
+    "price": 0
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 5,
+  "fields": {
+    "name": "b",
+    "description": "qweqwe",
+    "status": "Other",
+    "remainder": 0,
+    "price": 12
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 6,
+  "fields": {
+    "name": "Monitor",
+    "description": "asdascawcsacascas",
+    "status": "Monitor",
+    "remainder": 0,
+    "price": 132
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 7,
+  "fields": {
+    "name": "ascascas",
+    "description": "cascascasc",
+    "status": "Speakers",
+    "remainder": 0,
+    "price": 1323
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 8,
+  "fields": {
+    "name": "Speakers",
+    "description": "asasdasdas",
+    "status": "Keyboard",
+    "remainder": 2,
+    "price": 1000
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 9,
+  "fields": {
+    "name": "Keybord",
+    "description": "dwqwqdwqd",
+    "status": "Keyboard",
+    "remainder": 3,
+    "price": 2500
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 10,
+  "fields": {
+    "name": "Monitor2",
+    "description": "asdwadwqdqwdqw",
+    "status": "Monitor",
+    "remainder": 2,
+    "price": 3000
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 11,
+  "fields": {
+    "name": "HP 150 Wired Mouse and Keyboard Wired USB Multi-device Keyboard  (Black)",
+    "description": "HP 150 Wired Mouse and Keyboard Wired USB Multi-device Keyboard  (Black)HP 150 Wired Mouse and Keyboard Wired USB Multi-device Keyboard  (Black)HP 150 Wired Mouse and Keyboard Wired USB Multi-device Keyboard  (Black)HP 150 Wired Mouse and Keyboard Wired USB Multi-device Keyboard  (Black)HP 150 Wired Mouse and Keyboard Wired USB Multi-device Keyboard  (Black)HP 150 Wired Mouse and Keyboard Wired USB Multi-device Keyboard  (Black)",
+    "status": "Keyboard",
+    "remainder": 1,
+    "price": 4500
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 12,
+  "fields": {
+    "name": "ASUS 24 inch Full HD TN Panel Anti Glare||Stereo Speakers Gaming Monitor (VG248QE)  (Response Time:",
+    "description": "ASUS 24 inch Full HD TN Panel Anti Glare||Stereo Speakers Gaming Monitor (VG248QE)  (Response Time: 1 ms, 144 Hz Refresh Rate)ASUS 24 inch Full HD TN Panel Anti Glare||Stereo Speakers Gaming Monitor (VG248QE)  (Response Time: 1 ms, 144 Hz Refresh Rate)ASUS 24 inch Full HD TN Panel Anti Glare||Stereo Speakers Gaming Monitor (VG248QE)  (Response Time: 1 ms, 144 Hz Refresh Rate)ASUS 24 inch Full HD TN Panel Anti Glare||Stereo Speakers Gaming Monitor (VG248QE)  (Response Time: 1 ms, 144 Hz Refresh Rate)",
+    "status": "Monitor",
+    "remainder": 5,
+    "price": 6000
+  }
+},
+{
+  "model": "webapp.store",
+  "pk": 13,
+  "fields": {
+    "name": "ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Ra",
+    "description": "ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Rate)ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Rate)ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Rate)ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Rate)ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Rate)ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Rate)ASUS ROG 23.8 inch Full HD TN Panel Gaming Monitor (XG248Q)  (Response Time: 1 ms, 240 Hz Refresh Rate)",
+    "status": "Monitor",
+    "remainder": 0,
+    "price": 13000
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$s5Qc6JW0DbGZGFCpKsr0al$FqFAW+EsYNqX8DMnBEiFspKKyHqPRH53uFlrGZ8aQ7U=",
+    "last_login": "2022-11-15T07:19:36.897Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-13T17:45:25.673Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
