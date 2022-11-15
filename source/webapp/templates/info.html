@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block menu %}
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'add' %}">Create</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'update' store.pk %}">Update</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'delete' store.pk %}">Delete</a>
+    </li>
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+    <h1>Characteristics:</h1><br>
+    <p><b>Model:</b> {{ store.name }}</p>
+    <p><b>Category </b> {{ store.status }}</p>
+    <p><b>Description:</b> {{ store.description }}</p>
+    <p><b>Price:</b> {{ store.price }}</p>
+    <p><b>Quantity:</b>{{ store.remainder }}</p>
+
+{% endblock %}

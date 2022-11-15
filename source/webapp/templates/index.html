@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block menu %}
+<li class="nav-item">
+  <a class="nav-link active" href="{% url 'add' %}">Create</a>
+</li>
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center" >Good</h1><br/><hr>
+    {% for s in store %}
+        <h2>{{ s.name }}</h2>
+        <p>{{  s.status }}</p>
+        <p>{{  s.price }}</p>
+        <h3><a href="{% url 'info' s.pk %}">More...</a></h3><br/>
+        <hr>
+    {% endfor %}
+{% endblock %}
