@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from webapp.models import GoodInCart, Store
+from webapp.models import GoodInCart, Store, Order, StoreOrder
+from webapp.forms import OrderForm
 from django.views.generic import View, ListView, DeleteView
 
 
@@ -36,6 +37,16 @@ class CartList(ListView):
     template_name = 'cart/list.html'
     context_object_name = 'cart'
     model = GoodInCart
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['form'] = OrderForm
+        return context
+
+    def post(self, *args, **kwargs):
+        order = Order.objects.create()
+        for i in self.get_queryset():
+            StoreOrder.objects.create(order=order, store=i.good.name, qty=i.good.remainder)
 
 
 class CartDeleteView(DeleteView):
