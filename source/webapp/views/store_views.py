@@ -1,14 +1,11 @@
 from django.shortcuts import reverse
 from django.urls import reverse_lazy
 from webapp.models import Store
-from webapp.forms import StoreForm
+from webapp.forms import StoreForm, SimpleSearchForm
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.db.models import Q
+from django.utils.http import urlencode
 # Create your views here.
-
-
-# def index_view(request):
-#     store = Store.objects.order_by('status', 'name').filter(remainder__gt=0)
-#     return render(request, 'index.html', {'store': store})
 
 
 class IndexView(ListView):
@@ -16,37 +13,44 @@ class IndexView(ListView):
     context_object_name = 'store'
     model = Store
 
+    def get_success_url(self):
+        return reverse('info', kwargs={'pk': self.object.pk})
+
+    def get(self, request, *args, **kwargs):
+        self.form = self.get_search_form()
+        if self.form.is_valid():
+            self.search_value = self.form.cleaned_data['search']
+        return super().get(request, *args, **kwargs)
+
+    def get_search_form(self):
+        return SimpleSearchForm(self.request.GET)
+
+    def get_search_value(self):
+        if self.form.is_valid():
+            return self.form.cleaned_data['search']
+
     def get_queryset(self):
-        filter = Store.objects.filter(remainder__gt=0)
-        return filter
+        queryset = super().get_queryset()
+        if self.search_value:
+            query = Q(name__icontains=self.search_value)
+            queryset = queryset.filter(query)
+            return queryset
+        if not self.search_value:
+            filter = Store.objects.exclude(remainder=0).order_by('name')
+            return filter
 
-
-# def info_views(request, pk):
-#     store = get_object_or_404(Store, pk=pk)
-#     return render(request, 'info.html', {'store':store})
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['form'] = self.form
+        if self.search_value:
+            context['query'] = urlencode({'search': self.search_value})
+            context['search'] = self.search_value
+        return context
 
 
 class InfoView(DetailView):
     template_name = 'goods/info.html'
     model = Store
-
-# def add_views(request):
-#     if request.method == "GET":
-#         form = StoreForm()
-#         return render(request, "add.html", {'form': form, 'status': CATEGORY})
-#     elif request.method == "POST":
-#         form = StoreForm(data=request.POST)
-#         if form.is_valid():
-#             new_todo = Store.objects.create(
-#                 name=form.cleaned_data['name'],
-#                 description=form.cleaned_data['description'],
-#                 status=form.cleaned_data['status'],
-#                 price=form.cleaned_data['price'],
-#                 remainder=form.cleaned_data['remainder']
-#             )
-#             return redirect('info', pk=new_todo.pk)
-#         else:
-#             return render(request, 'add.html', {'form': form, 'status': CATEGORY})
 
 
 class AddView(CreateView):
@@ -59,24 +63,6 @@ class AddView(CreateView):
         return reverse('info', kwargs={'pk': self.object.pk})
 
 
-# def update_view(request, pk):
-#     store = get_object_or_404(Store, pk=pk)
-#     if request.method == 'GET':
-#         form = StoreForm(initial={'name': store.name, 'description': store.description, 'price': store.price, 'remainder':store.remainder})
-#         return render(request, 'update.html', {'form': form, 'status': CATEGORY})
-#     elif request.method == "POST":
-#         form = StoreForm(data=request.POST)
-#         if form.is_valid():
-#             store.name = form.cleaned_data.get('name')
-#             store.description = form.cleaned_data.get('description')
-#             store.price = form.cleaned_data.get('price')
-#             store.remainder = form.cleaned_data.get('remainder')
-#             store.status = form.cleaned_data.get('status')
-#             store.save()
-#             return redirect('info', pk=store.pk)
-#         else:
-#             return render(request, 'update.html', {'status': CATEGORY, 'form': form})
-
 class UpdateView(UpdateView):
     model = Store
     template_name = 'update.html'
@@ -86,14 +72,6 @@ class UpdateView(UpdateView):
     def get_success_url(self):
         return reverse('info', kwargs={'pk': self.object.pk})
 
-
-# def delete_view(request, pk):
-#     store = get_object_or_404(Store, pk=pk)
-#     if request.method == 'GET':
-#         return render(request, 'delete.html', {'store': store})
-#     elif request.method == 'POST':
-#         store.delete()
-#         return redirect('index')
 
 class DeleteView(DeleteView):
     template_name = 'delete.html'
