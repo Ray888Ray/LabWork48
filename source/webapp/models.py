@@ -11,7 +11,7 @@ class GoodInCart(models.Model):
         return self.good.price * self.quantity
 
     def __str__(self):
-        return self.good
+        return self.good.name
 
 
 class Store(models.Model):
