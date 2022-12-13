@@ -3,6 +3,13 @@
 <li class="nav-item">
   <a class="nav-link active" href="{% url 'add' %}">Create</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link active" href="{% url "cart_list" %}">View Your Cart</a>
+</li>
+<li class="nav-item">
+    {% include 'partial/simple_search.html' %}
+</li>
+
 {% endblock %}
 
 {% block content %}
@@ -12,6 +19,9 @@
         <p>{{  s.status }}</p>
         <p>{{  s.price }}</p>
         <h3><a href="{% url 'info' s.pk %}">More...</a></h3><br/>
+         {% if s.remainder %}
+                <a class="btn btn-primary" href="{%url "cart_index" s.pk %}" role="button">Add to Cart</a>
+         {% endif %}
         <hr>
     {% endfor %}
 {% endblock %}
