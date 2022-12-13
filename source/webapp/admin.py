@@ -1,5 +1,5 @@
 from django.contrib import admin
-from webapp.models import Store
+from webapp.models import Store, GoodInCart, Order, StoreOrder
 # Register your models here.
 
 
@@ -13,3 +13,6 @@ class StoreAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Store, StoreAdmin)
+admin.site.register(GoodInCart)
+admin.site.register(Order)
+admin.site.register(StoreOrder)
