@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center" >Cart</h1><br/><hr>
+    {% for t in cart %}
+        <h2>Name: {{ t.good.name }} </h2>
+        <h2>Price: {{ t.good.price }}</h2>
+        <h2>Quantity: {{ t.quantity }}</h2>
+        <h2>Total: {{ t.total_price }}</h2>
+          <a href="{% url "cart_delete" t.pk %}">Delete</a>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
